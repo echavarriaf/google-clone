@@ -25,8 +25,8 @@ function SearchPage() {
   //LIVE API CALL
   const { data } = useGoogleSearch(term);
 
-    //Mock API CALL
-//   const data = Response;
+  //Mock API CALL
+  //   const data = Response;
 
   console.log(data);
   return (
@@ -51,31 +51,31 @@ function SearchPage() {
               </div>
               <div className="searchPage__option">
                 <DescriptionIcon />
-                <Link to="/news">News</Link>
+                <Link to="/error">News</Link>
               </div>
               <div className="searchPage__option">
                 <ImageIcon />
-                <Link to="/images">Images</Link>
+                <Link to="/error">Images</Link>
               </div>
               <div className="searchPage__option">
                 <LocalOfferIcon />
-                <Link to="/shopping">Shopping</Link>
+                <Link to="/error">Shopping</Link>
               </div>
               <div className="searchPage__option">
                 <RoomIcon />
-                <Link to="/maps">Maps</Link>
+                <Link to="/error">Maps</Link>
               </div>
               <div className="searchPage__option">
                 <MoreVertIcon />
-                <Link to="/shopping">more</Link>
+                <Link to="/error">more</Link>
               </div>
             </div>
             <div className="searchPage__optionsRight">
               <div className="searchPage__option">
-                <Link to="/settings">Settings</Link>
+                <Link to="/error">Settings</Link>
               </div>
               <div className="searchPage__option">
-                <Link to="/tools">Tools</Link>
+                <Link to="/error">Tools</Link>
               </div>
             </div>
           </div>
@@ -90,20 +90,24 @@ function SearchPage() {
 
           {data?.items.map((item) => (
             <div className="searchPage__result">
-                  <a className="searchPage__resultLink" href={item.link}>
-                      {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
-                          <img className="searchPage__resultImage" src={
-                              item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src } alt=""/>
-                  
-                      )}
-                      {item.displayLink} &#9661;
-                      </a>
-                  <a className="searchPage__resultTitle" href={item.link}>
-                      <h2>{item.title}</h2>
-                  </a>
-                  <p className="searchPage__resultSnippet">
-                    {item.snippet}
-                  </p>
+              <a className="searchPage__resultLink" href={item.link}>
+                {item.pagemap?.cse_image?.length > 0 &&
+                  item.pagemap?.cse_image[0]?.src && (
+                    <img
+                      className="searchPage__resultImage"
+                      src={
+                        item.pagemap?.cse_image?.length > 0 &&
+                        item.pagemap?.cse_image[0]?.src
+                      }
+                      alt=""
+                    />
+                  )}
+                {item.displayLink} &#9661;
+              </a>
+              <a className="searchPage__resultTitle" href={item.link}>
+                <h2>{item.title}</h2>
+              </a>
+              <p className="searchPage__resultSnippet">{item.snippet}</p>
             </div>
           ))}
         </div>
