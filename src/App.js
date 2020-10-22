@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import SearchPage from "./pages/SearchPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Error from "./components/Error";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <Switch>
           <Route path="/search">
             <SearchPage />
+          </Route>
+          <Route path="/error">
+            <Error />
           </Route>
           <Route path="/">
             <Home />
